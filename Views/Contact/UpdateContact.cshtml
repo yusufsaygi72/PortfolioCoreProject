@@ -1,0 +1,43 @@
+﻿@model PortfolioCoreDay.Entities.Contact
+@{
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="container mt-4">
+    <div class="card shadow-sm">
+        <div class="card-header bg-warning">
+            <h4 class="mb-0 text-white">İletişim Bilgilerini Güncelle</h4>
+        </div>
+        <div class="card-body">
+            <form method="post">
+                
+                <input type="hidden" asp-for="ContactId" />
+
+                <div class="form-group mb-3">
+                    <label class="fw-bold">E-posta Adresi</label>
+                    <input type="email" asp-for="Email" class="form-control" placeholder="Örn: mail@adresiniz.com" />
+                </div>
+
+                <div class="form-group mb-3">
+                    <label class="fw-bold">Telefon Numarası</label>
+                    <input type="text" asp-for="Phone" class="form-control" placeholder="Örn: 05xx xxx xx xx" />
+                </div>
+
+                <div class="form-group mb-3">
+                    <label class="fw-bold">Harita Konum Linki (Google Maps URL)</label>
+                    <input type="text" asp-for="MapUrl" class="form-control" placeholder="Google Maps iframe linkini buraya yapıştırın" />
+                </div>
+
+                <div class="form-group mb-3">
+                    <label class="fw-bold">Açık Adres</label>
+                    <textarea asp-for="Address" class="form-control" rows="3" placeholder="Adresinizi buraya yazın..."></textarea>
+                </div>
+
+                <div class="d-flex gap-2">
+                    <button type="submit" class="btn btn-success px-4">Değişiklikleri Kaydet</button>
+                    <a href="/Contact/Index" class="btn btn-secondary">Vazgeç</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

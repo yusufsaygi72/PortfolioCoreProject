@@ -1,0 +1,44 @@
+﻿@model PortfolioCoreDay.Entities.Portfolio
+@{
+    ViewData["Title"] = "UpdatePortfolio";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="container mt-4">
+    <h3>Proje Güncelleme Paneli</h3>
+    <br />
+    <form method="post">
+        @* BURASI ÇOK KRİTİK: PortfolioId'yi gizli (hidden) olarak tutmazsak, 
+           kaydet dediğinde sistem hangi projeyi güncelleyeceğini şaşırır! 
+        *@
+        @Html.HiddenFor(x => x.PortfolioId)
+
+        <label>Proje Başlığı</label>
+        <input type="text" asp-for="Title" class="form-control" style="border: 1px solid #000;" />
+        <br />
+
+        <label>Kategori</label>
+        @* ViewBag ile gelen kategorileri dropdown içinde gösteriyoruz *@
+        @Html.DropDownListFor(x => x.CategoryId, (SelectList)ViewBag.v, new { @class = "form-control", style = "border: 1px solid #000;" })
+        <br />
+
+        <label>Açıklama</label>
+        <textarea asp-for="Description" rows="4" class="form-control" style="border: 1px solid #000;"></textarea>
+        <br />
+
+        <label>Görsel URL</label>
+        <input type="text" asp-for="ImageUrl" class="form-control" style="border: 1px solid #000;" />
+        <br />
+
+        <label>GitHub Proje Linki</label>
+        <input type="text" asp-for="GithubUrl" class="form-control" style="border: 1px solid #000;" />
+        <br />
+
+        <label>Proje Linki</label>
+        <input type="text" asp-for="ImageUrl" class="form-control" style="border: 1px solid #000;" />
+        <br />
+
+        <button class="btn btn-success">Değişiklikleri Uygula ve Kaydet</button>
+        <a href="/Portfolio/ProjectList" class="btn btn-secondary">Vazgeç</a>
+    </form>
+</div>

@@ -1,0 +1,31 @@
+﻿@model List<PortfolioCoreDay.Entities.Service>
+@{
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="container mt-4">
+    <h3>Hizmet Listesi</h3>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Hizmet Başlığı</th>
+                <th>İşlem</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.ServiceId</td>
+                    <td>@item.title</td>
+                    <td>
+                        <a href="/Service/DeleteService/@item.ServiceId" class="btn btn-danger">Sil</a>
+                    <td><a href="/Service/UpdateService/@item.ServiceId" class="btn btn-warning">Güncelle</a></td>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <a href="/Service/CreateService" class="btn btn-primary">Yeni Hizmet Ekle</a>
+</div>

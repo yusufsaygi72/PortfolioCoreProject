@@ -1,0 +1,42 @@
+﻿@model List<PortfolioCoreDay.Entities.Portfolio>
+@{
+    Layout = "~/Views/AdminLayout/Index.cshtml"; // Admin tasarımını kullanıyoruz
+}
+
+<div class="container-fluid mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h3 class="fw-bold">Proje Kartları (Vitrin)</h3>
+        @* Burada eski liste sayfana geri dönmek için bir buton koyduk *@
+        <a href="/Portfolio/ProjectList" class="btn btn-dark btn-sm">Liste Görünümüne Geç</a>
+    </div>
+
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <div class="col-md-4 mb-4">
+                @* Case'deki 'Card-Title' yapısı tam olarak burası *@
+                <div class="card shadow-sm h-100 border-0">
+                    @* Resim *@
+                    <img src="@item.ImageUrl" class="card-img-top" alt="Proje" style="height: 200px; object-fit: cover; border-top-left-radius: 8px; border-top-right-radius: 8px;">
+
+                    <div class="card-body">
+                        @* Kategori Adı *@
+                        <small class="text-primary fw-bold">@item.Category.CategoryName</small>
+
+                        @* Başlık (Card-Title) *@
+                        <h5 class="card-title fw-bold mt-1">@item.Title</h5>
+
+                        @* Açıklama *@
+                        <p class="card-text text-muted" style="font-size: 0.85rem;">@item.Description</p>
+                    </div>
+
+                    <div class="card-footer bg-white border-top-0 d-flex justify-content-between pb-3">
+                        @* Senin Controller'ındaki Update ve Delete metotlarına bağlanıyorlar *@
+                        <a href="/Portfolio/UpdatePortfolio/@item.PortfolioId" class="btn btn-outline-warning btn-sm">Düzenle</a>
+                        <a href="/Portfolio/DeleteProject/@item.PortfolioId" class="btn btn-outline-danger btn-sm" onclick="return confirm('Silmek istediğine emin misin kanka?')">Sil</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

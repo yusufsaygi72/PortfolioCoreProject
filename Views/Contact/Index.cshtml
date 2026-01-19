@@ -1,0 +1,18 @@
+﻿@model PortfolioCoreDay.Entities.Contact
+
+@{
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<h3>İletişim Bilgilerim</h3>
+
+<div class="card">
+    <div class="card-body">
+        <p><strong>Telefon:</strong> @Model.Phone</p>
+        <p><strong>E-posta:</strong> @Model.Email</p>
+        <p><strong>Adres:</strong> @Model.Address</p>
+        
+        @* Güncelleme sayfasına giderken ID'yi (yani 1'i) gönderiyoruz *@
+        <a href="/Contact/UpdateContact/@Model.ContactId" class="btn btn-primary">Bilgileri Güncelle</a>
+    </div>
+</div>

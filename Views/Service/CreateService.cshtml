@@ -1,0 +1,21 @@
+﻿@model PortfolioCoreDay.Entities.Service
+@{
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="container mt-4">
+    <h3>Yeni Hizmet Ekle</h3>
+    <form method="post">
+        <div class="form-group">
+            <label>Hizmet Başlığı</label>
+            <input type="text" asp-for="title" class="form-control" style="border: 1px solid #000;" required />
+        </div>
+        <br />
+        <div class="form-group">
+            <label>Açıklama</label>
+            <textarea asp-for="Description" class="form-control" rows="3" style="border: 1px solid #000;" required></textarea>
+        </div>
+        <br />
+        <button type="submit" class="btn btn-primary">Hizmeti Kaydet</button>
+    </form>
+</div>

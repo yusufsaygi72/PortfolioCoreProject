@@ -1,0 +1,32 @@
+﻿@model List<PortfolioCoreDay.Entities.Experience>
+@{
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="container mt-4">
+    <h3>Deneyim Listesi</h3>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Başlık</th>
+                <th>Şirket</th>
+                <th>Sil</th>
+                <th>Güncelle</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.ExperienceId</td>
+                    <td>@item.Title</td>
+                    <td>@item.CompanyName</td>
+                    <td><a href="/Experience/DeleteExperience/@item.ExperienceId" class="btn btn-danger">Sil</a></td>
+                    <td><a href="/Experience/UpdateExperience/@item.ExperienceId" class="btn btn-warning">Güncelle</a></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <a href="/Experience/CreateExperience" class="btn btn-info">Yeni Deneyim Ekle</a>
+</div>

@@ -1,0 +1,36 @@
+﻿@model List<PortfolioCoreDay.Entities.Education>
+@{
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="container mt-4">
+    <h3>Eğitim Bilgilerim</h3>
+    <table class="table table-bordered" style="border: 2px solid #000;">
+        <thead class="table-dark">
+            <tr>
+                <th>Derece (Title)</th>
+                <th>Üniversite</th>
+                <th>Bölüm</th>
+                <th>Tarih</th>
+                <th>İşlemler</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Title</td>
+                    <td>@item.Universty</td>
+                    <td>@item.Department</td>
+                    <td>@item.EducationDate</td>
+                    <td>
+                        <a href="/Education/DeleteEducation/@item.EducationId" class="btn btn-outline-danger btn-sm">Sil</a>
+                        <a href="/Education/UpdateEducation/@item.EducationId" class="btn btn-outline-success btn-sm">Güncelle</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <a href="/Education/CreateEducation" class="btn btn-primary">Yeni Eğitim Ekle</a>
+</div>
+</div>

@@ -1,0 +1,48 @@
+﻿@model PortfolioCoreDay.Entities.About
+@{
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="container mt-4">
+    <h3>Hakkımda Bilgilerini Düzenle</h3>
+    <hr />
+    <form method="post">
+        @Html.HiddenFor(x => x.AboutId)
+
+        <div class="row">
+            <div class="col-md-6">
+                <label>Ünvan (Title)</label>
+                <input type="text" asp-for="Title" class="form-control" style="border: 1px solid #000;" />
+                <br />
+
+                <label>Doğum Tarihi</label>
+                <input type="date" asp-for="Birthday" class="form-control" style="border: 1px solid #000;"
+                       value="@Model.Birthday.ToString("yyyy-MM-dd")" />
+                <br />
+
+                <label>E-posta</label>
+                <input type="email" asp-for="Email" class="form-control" style="border: 1px solid #000;" />
+                <br />
+
+                <label>Telefon</label>
+                <input type="text" asp-for="Phone" class="form-control" style="border: 1px solid #000;" />
+            </div>
+
+            <div class="col-md-6">
+                <label>Web Sitesi</label>
+                <input type="text" asp-for="Website" class="form-control" style="border: 1px solid #000;" />
+                <br />
+
+                <label>Derece / Eğitim (Degree)</label>
+                <input type="text" asp-for="Degree" class="form-control" style="border: 1px solid #000;" />
+                <br />
+
+                <label>Açıklama (Description)</label>
+                <textarea asp-for="Description" rows="5" class="form-control" style="border: 1px solid #000;"></textarea>
+            </div>
+        </div>
+
+        <br />
+        <button class="btn btn-primary" style="width:100%">Tüm Bilgileri Kaydet</button>
+    </form>
+</div>

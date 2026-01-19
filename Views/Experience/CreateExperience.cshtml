@@ -1,0 +1,32 @@
+﻿@model PortfolioCoreDay.Entities.Experience
+@{
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="container mt-4">
+    <h3>Yeni Deneyim Ekle</h3>
+    <form method="post">
+        <div class="form-group">
+            <label>Başlık</label>
+            <input type="text" asp-for="Title" class="form-control" style="border: 1px solid #000;" required />
+        </div>
+        <br />
+        <div class="form-group">
+            <label>Şirket Adı</label>
+            <input type="text" asp-for="CompanyName" class="form-control" style="border: 1px solid #000;" required />
+        </div>
+        <br />
+        <div class="form-group">
+            <label>Tarih</label>
+            <input type="text" asp-for="ExperienceDate" class="form-control" style="border: 1px solid #000;" />
+        </div>
+        <br />
+        <div class="form-group">
+            <label>Açıklama</label>
+            <textarea asp-for="Description" class="form-control" rows="4" style="border: 1px solid #000;"></textarea>
+        </div>
+        <br />
+        <button type="submit" class="btn btn-primary">Deneyimi Kaydet</button>
+        <a href="/Experience/ExperienceList" class="btn btn-secondary">İptal</a>
+    </form>
+</div>
